@@ -1,37 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Anime.js Periodic Table Auto Layout animation</title><link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla Periódica Interactiva</title>
+  <link rel="stylesheet" href="style.css">
 
-  </head>
-    
-  <body>
+  <style>
+    .controls button {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .controls button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .credits {
+      text-align: center;
+      position: fixed;
+      z-index: 1;
+      bottom: 0;
+      width: 100%;
+      height: var(--header-height);
+      padding: var(--padding);
+      font-size: 0.85rem;
+      color: var(--fg-2);
+    }
+
+    .credits a {
+      color: var(--sky-1);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .credits a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
   <div class="controls">
-  <div class="controls-group display br">
-    <button class="is-active toggle" id="table">table</button>
-    <button class="toggle" id="sphere">sphere</button>
-    <button class="toggle" id="helix">helix</button>
-    <button class="toggle" id="grid">grid</button>
+    <div class="controls-group display br">
+      <button class="is-active toggle" id="table">Tabla</button>
+      <button class="toggle" id="sphere">Esfera</button>
+      <button class="toggle" id="helix">Hélice</button>
+      <button class="toggle" id="grid">Grilla</button>
+    </div>
   </div>
-</div>
-<div id="scene">
-  <div id="scene-content" data-layout="table"></div>
-</div>
-<div class="credits">
-  3D transform calculations ported from this three.js <a href="https://threejs.org/examples/css3d_periodictable.html" target="_blank">demo</a>.
-</div>
-<template id="element">
-  <button class="element" data-color="0">
-    <div class="element-number"></div>
-    <div class="element-symbol"></div>
-    <div class="element-title"></div>
-    <div class="element-description"></div>
-  </button>
-</template>
-    <script type="module" src="./script.js"></script>
 
-  </body>
-  
+  <div id="scene">
+    <div id="scene-content" data-layout="table"></div>
+  </div>
+
+  <div class="credits">
+    Desarrollado por
+    <a href="https://pompone.github.io/CV_Pompone.github.io/cv.pdf" target="_blank">
+      Alejandro M. Pompone
+    </a>
+  </div>
+
+  <template id="element">
+    <button class="element" data-color="0">
+      <div class="element-number"></div>
+      <div class="element-symbol"></div>
+      <div class="element-title"></div>
+      <div class="element-description"></div>
+    </button>
+  </template>
+
+  <script type="module" src="./script.js"></script>
+</body>
+
 </html>
